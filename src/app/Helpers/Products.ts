@@ -41,7 +41,7 @@ const createProduct = async (data: Partial<IProduct>): Promise<void> => {
 
 const getProduct = async (
   product_id: number
-): Promise<Partial<ProductResponse>> => {
+): Promise<Partial<IProduct>> => {
   try {
     const token = await generateAccessToken()
 

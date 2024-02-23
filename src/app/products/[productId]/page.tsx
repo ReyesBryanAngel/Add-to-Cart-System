@@ -53,7 +53,7 @@ const ProductView = async ({ params }: ProductViewProps) => {
         </div>
 
         <div className='mb-4 col-span-2'>
-          <HomeButton />
+          <HomeButton name={product.name} />
         </div>
       </div>
     </main>

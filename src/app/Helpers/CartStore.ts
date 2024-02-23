@@ -12,10 +12,6 @@ type CartStore = {
 };
 
 export const useCartStore = create<CartStore>((set) => {
-  // if (typeof window !== 'undefined') {
-  //   const storedItems = localStorage.getItem('cartItems');
-  //   const initialItems: IProduct[] = storedItems ? JSON.parse(storedItems) : [];
-  // }
   const storedItems = typeof window !== 'undefined' ? localStorage.getItem('cartItems') : null;
   const initialItems: IProduct[] = storedItems ? JSON.parse(storedItems) : [];
 
