@@ -27,11 +27,11 @@ const ProductRow: React.FC<ProductRowProps> = ({
 
   const cartItemCount = items.reduce((acc, item) => acc + item.quantity, 0);
 
-  const handleViewProduct = (product_id) => {
+  const handleViewProduct = (product_id: number) => {
     router.push(`/products/${product_id}`)
   }
 
-  const handleDeleteProduct = async (product_id) => {
+  const handleDeleteProduct = async (product_id: number) => {
     removeOptimisticProduct(product_id)
 
     // Directus: Product Delete
