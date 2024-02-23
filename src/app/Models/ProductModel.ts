@@ -4,6 +4,8 @@ export interface IProduct {
   name: string
   description: string
   price: number
+  originalPrice: number
+  quantity: number
   status: string
   date_created: string
   date_updated: string

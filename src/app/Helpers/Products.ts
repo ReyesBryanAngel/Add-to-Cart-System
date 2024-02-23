@@ -27,8 +27,6 @@ const createProduct = async (data: Partial<IProduct>): Promise<void> => {
   try {
     const token = await generateAccessToken()
 
-    console.log(data)
-
     await baseApi.post('/items/products', data, {
       headers: {
         Authorization: `Bearer ${token}`,

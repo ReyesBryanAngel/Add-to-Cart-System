@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { AddProductButton } from '@/app/Components/AddProductButton'
+import { ViewCartButton } from './Components/ViewCartButton'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -46,7 +47,8 @@ export default function RootLayout({
               Lazapee
             </a>
           </div>
-          <div className='navbar-end'>
+          <div className='navbar-end gap-5'>
+            <ViewCartButton name='View Cart'/>
             <AddProductButton className='mt-10' name='New Product' />
           </div>
         </div>

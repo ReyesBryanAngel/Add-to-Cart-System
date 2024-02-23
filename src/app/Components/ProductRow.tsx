@@ -4,6 +4,8 @@ import { IProduct } from '@/app/Models/ProductModel'
 import { BiInfoCircle, BiSolidTrash } from 'react-icons/bi'
 import { deleteProduct } from '@/app/Helpers/Products'
 import { useRouter } from 'next/navigation'
+import { useCartStore } from '@/app/Helpers/CartStore';
+import Image from 'next/image';
 import React from 'react'
 
 interface ProductRowProps {
@@ -16,6 +18,15 @@ const ProductRow: React.FC<ProductRowProps> = ({
   removeOptimisticProduct,
 }) => {
   const router = useRouter()
+  const addToCart = useCartStore((state) => state.addToCart);
+  const items = useCartStore((state) => state.items);
+
+  const handleAddToCart = () => {
+    addToCart({ ...product, quantity: 1 });
+  };
+
+  const cartItemCount = items.reduce((acc, item) => acc + item.quantity, 0);
+
   const handleViewProduct = (product_id) => {
     router.push(`/products/${product_id}`)
   }
@@ -31,10 +42,17 @@ const ProductRow: React.FC<ProductRowProps> = ({
     <tr key={product.id}>
       <td></td>
       <td>
-        <div className='avatar'>
-          <div className='w-24 rounded-xl'>
-            <img src={product.image} alt={product.image} />
+        <div className='avatar flex flex-col space-y-3'>
+          <div className='rounded-xl'>
+              <Image
+                src={product.image}
+                alt={product.image}
+                width={500}
+                height={300}
+                style={{ borderRadius:"20px" }}
+              />
           </div>
+          <button className='btn btn-outline btn-info' onClick={handleAddToCart}>Add to Cart</button>
         </div>
       </td>
       <td>{product.name}</td>

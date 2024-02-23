@@ -21,8 +21,6 @@ export default async function addProduct(
       description: formData.get('description') as string,
     }
 
-    console.log(newProduct)
-
     const validatedFields = schema.safeParse(newProduct)
 
     // Return early if the form data is invalid
