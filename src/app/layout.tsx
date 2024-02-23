@@ -49,7 +49,7 @@ export default function RootLayout({
           </div>
           <div className='navbar-end gap-5'>
             <ViewCartButton name='View Cart'/>
-            <AddProductButton className='mt-10' name='New Product' />
+            <AddProductButton name='New Product' />
           </div>
         </div>
         {children}
